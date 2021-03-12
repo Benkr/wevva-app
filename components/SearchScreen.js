@@ -34,6 +34,7 @@ export default function SearchScreen({ navigation }) {
     )
       .then((response) => response.json())
       .then((data) => {
+        console.log(searchResult);
         setSearchResult(data);
       });
   };

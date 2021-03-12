@@ -31,7 +31,7 @@ export default function AppProvider({ children }) {
         return;
       }
       let currentLocation = await Location.getCurrentPositionAsync({
-        enableHighAccuracy: true,
+        accuracy: 6,
       });
       setLatitude(currentLocation.coords.latitude);
       setLongitude(currentLocation.coords.longitude);
