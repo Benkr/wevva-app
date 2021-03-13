@@ -11,7 +11,8 @@ import Conditions from './Conditions';
 import AirPollution from './AirPollution';
 import Loading from './Loading';
 import Map from './Map';
-import { EXPO_API_KEY_OWM } from '@env';
+const EXPO_API_KEY_OWM = '57311a90a3e7cbf52c5f885c10d6c755';
+
 
 // Seperate Forecast component created specifically for searched cities, as a stack navigator passes
 // data as props.route.params instead of just props. Also layout requires a back button. Potential

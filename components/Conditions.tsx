@@ -3,9 +3,15 @@ import { Text, View } from 'react-native';
 import { styles } from '../styles/styles';
 import { degToCard, measureUVI } from '../helpers';
 // import { EXPO_API_KEY_AMBEE } from '@env';
+export interface conditionsObject {
+  data?: any;
+  lat?: any;
+  lon?: any;
+  liveLocation?: any;
+}
 
-export default function Conditions({ data }) {
-  const conditions = data.hourly[0];
+export default function Conditions(conditionsObject: conditionsObject) {
+  const conditions = conditionsObject.data.hourly[0];
   const [grassPollen] = useState('Low');
   const [treePollen] = useState('Moderate');
   const [weedPollen] = useState('Low');

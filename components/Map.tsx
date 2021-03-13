@@ -3,7 +3,8 @@ import { View, Text } from 'react-native';
 import MapView, { UrlTile } from 'react-native-maps';
 import { styles } from '../styles/styles';
 import nightMapStyle from '../styles/nightMapStyle.json';
-import { EXPO_API_KEY_OWM } from '@env';
+const EXPO_API_KEY_OWM = '57311a90a3e7cbf52c5f885c10d6c755';
+
 
 // Displays map of location with Open Weather Map tiles on top showing areas of rain. Quality is generally bad however
 // this is the only free one I could find available as of today.

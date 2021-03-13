@@ -6,7 +6,7 @@ import Flag from 'react-native-flags';
 import { StatusBar } from 'expo-status-bar';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
 import { Icon } from 'galio-framework';
-import { EXPO_API_KEY_OWM } from '@env';
+const EXPO_API_KEY_OWM = '57311a90a3e7cbf52c5f885c10d6c755';
 import { styles } from '../styles/styles';
 import { useApp } from '../AppContext';
 
@@ -24,7 +24,7 @@ export default function SearchScreen({ navigation }) {
   const handleChange = (textValue) => {
     setSearchString(textValue);
   };
-  const debounceSearch = useCallback(
+  const debounceSearch: any = useCallback(
     AwesomeDebouncePromise((searchString) => fetchCities(searchString), 1000),
     []
   );

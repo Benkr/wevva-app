@@ -2,6 +2,11 @@ import React, { useState, useEffect, useContext } from 'react';
 import * as Location from 'expo-location';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+interface appProviderInterface{
+  addCity?: any;
+  removeCity?: any;
+  savedCityList?: any;
+}
 const AppContext = React.createContext();
 export function useApp() {
   return useContext(AppContext);
