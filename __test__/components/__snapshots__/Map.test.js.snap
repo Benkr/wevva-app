@@ -1,0 +1,437 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Map /> renders correctly across screens 1`] = `
+Array [
+  <Text
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 17,
+        "fontWeight": "bold",
+        "marginBottom": 5,
+      }
+    }
+  >
+    Precipitation Map
+  </Text>,
+  <View
+    style={
+      Object {
+        "borderRadius": 7,
+        "height": 300,
+        "marginBottom": 30,
+        "overflow": "hidden",
+        "width": "100%",
+      }
+    }
+  >
+    <AIRMap
+      customMapStyle={
+        Array [
+          Object {
+            "elementType": "geometry",
+            "stylers": Array [
+              Object {
+                "color": "#242f3e",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.fill",
+            "stylers": Array [
+              Object {
+                "color": "#746855",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.stroke",
+            "stylers": Array [
+              Object {
+                "color": "#242f3e",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.fill",
+            "featureType": "administrative.locality",
+            "stylers": Array [
+              Object {
+                "color": "#d59563",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.fill",
+            "featureType": "poi",
+            "stylers": Array [
+              Object {
+                "color": "#d59563",
+              },
+            ],
+          },
+          Object {
+            "elementType": "geometry",
+            "featureType": "poi.park",
+            "stylers": Array [
+              Object {
+                "color": "#263c3f",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.fill",
+            "featureType": "poi.park",
+            "stylers": Array [
+              Object {
+                "color": "#6b9a76",
+              },
+            ],
+          },
+          Object {
+            "elementType": "geometry",
+            "featureType": "road",
+            "stylers": Array [
+              Object {
+                "color": "#38414e",
+              },
+            ],
+          },
+          Object {
+            "elementType": "geometry.stroke",
+            "featureType": "road",
+            "stylers": Array [
+              Object {
+                "color": "#212a37",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.fill",
+            "featureType": "road",
+            "stylers": Array [
+              Object {
+                "color": "#9ca5b3",
+              },
+            ],
+          },
+          Object {
+            "elementType": "geometry",
+            "featureType": "road.highway",
+            "stylers": Array [
+              Object {
+                "color": "#746855",
+              },
+            ],
+          },
+          Object {
+            "elementType": "geometry.stroke",
+            "featureType": "road.highway",
+            "stylers": Array [
+              Object {
+                "color": "#1f2835",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.fill",
+            "featureType": "road.highway",
+            "stylers": Array [
+              Object {
+                "color": "#f3d19c",
+              },
+            ],
+          },
+          Object {
+            "elementType": "geometry",
+            "featureType": "transit",
+            "stylers": Array [
+              Object {
+                "color": "#2f3948",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.fill",
+            "featureType": "transit.station",
+            "stylers": Array [
+              Object {
+                "color": "#d59563",
+              },
+            ],
+          },
+          Object {
+            "elementType": "geometry",
+            "featureType": "water",
+            "stylers": Array [
+              Object {
+                "color": "#17263c",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.fill",
+            "featureType": "water",
+            "stylers": Array [
+              Object {
+                "color": "#515c6d",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.stroke",
+            "featureType": "water",
+            "stylers": Array [
+              Object {
+                "color": "#17263c",
+              },
+            ],
+          },
+        ]
+      }
+      handlePanDrag={false}
+      initialRegion={
+        Object {
+          "latitude": undefined,
+          "latitudeDelta": 3,
+          "longitude": undefined,
+          "longitudeDelta": 3,
+        }
+      }
+      onChange={[Function]}
+      onLayout={[Function]}
+      onMapReady={[Function]}
+      onMarkerPress={[Function]}
+      region={null}
+      style={
+        Object {
+          "height": 300,
+          "width": "100%",
+        }
+      }
+    >
+      <AIRMapUrlTile
+        urlTemplate="https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=5d6cc031484aebd5fabaa15febdd9236"
+      />
+    </AIRMap>
+  </View>,
+]
+`;
+
+exports[`test against snapshot 1`] = `
+Array [
+  <Text
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 17,
+        "fontWeight": "bold",
+        "marginBottom": 5,
+      }
+    }
+  >
+    Precipitation Map
+  </Text>,
+  <View
+    style={
+      Object {
+        "borderRadius": 7,
+        "height": 300,
+        "marginBottom": 30,
+        "overflow": "hidden",
+        "width": "100%",
+      }
+    }
+  >
+    <AIRMap
+      customMapStyle={
+        Array [
+          Object {
+            "elementType": "geometry",
+            "stylers": Array [
+              Object {
+                "color": "#242f3e",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.fill",
+            "stylers": Array [
+              Object {
+                "color": "#746855",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.stroke",
+            "stylers": Array [
+              Object {
+                "color": "#242f3e",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.fill",
+            "featureType": "administrative.locality",
+            "stylers": Array [
+              Object {
+                "color": "#d59563",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.fill",
+            "featureType": "poi",
+            "stylers": Array [
+              Object {
+                "color": "#d59563",
+              },
+            ],
+          },
+          Object {
+            "elementType": "geometry",
+            "featureType": "poi.park",
+            "stylers": Array [
+              Object {
+                "color": "#263c3f",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.fill",
+            "featureType": "poi.park",
+            "stylers": Array [
+              Object {
+                "color": "#6b9a76",
+              },
+            ],
+          },
+          Object {
+            "elementType": "geometry",
+            "featureType": "road",
+            "stylers": Array [
+              Object {
+                "color": "#38414e",
+              },
+            ],
+          },
+          Object {
+            "elementType": "geometry.stroke",
+            "featureType": "road",
+            "stylers": Array [
+              Object {
+                "color": "#212a37",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.fill",
+            "featureType": "road",
+            "stylers": Array [
+              Object {
+                "color": "#9ca5b3",
+              },
+            ],
+          },
+          Object {
+            "elementType": "geometry",
+            "featureType": "road.highway",
+            "stylers": Array [
+              Object {
+                "color": "#746855",
+              },
+            ],
+          },
+          Object {
+            "elementType": "geometry.stroke",
+            "featureType": "road.highway",
+            "stylers": Array [
+              Object {
+                "color": "#1f2835",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.fill",
+            "featureType": "road.highway",
+            "stylers": Array [
+              Object {
+                "color": "#f3d19c",
+              },
+            ],
+          },
+          Object {
+            "elementType": "geometry",
+            "featureType": "transit",
+            "stylers": Array [
+              Object {
+                "color": "#2f3948",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.fill",
+            "featureType": "transit.station",
+            "stylers": Array [
+              Object {
+                "color": "#d59563",
+              },
+            ],
+          },
+          Object {
+            "elementType": "geometry",
+            "featureType": "water",
+            "stylers": Array [
+              Object {
+                "color": "#17263c",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.fill",
+            "featureType": "water",
+            "stylers": Array [
+              Object {
+                "color": "#515c6d",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels.text.stroke",
+            "featureType": "water",
+            "stylers": Array [
+              Object {
+                "color": "#17263c",
+              },
+            ],
+          },
+        ]
+      }
+      handlePanDrag={false}
+      initialRegion={
+        Object {
+          "latitude": undefined,
+          "latitudeDelta": 3,
+          "longitude": undefined,
+          "longitudeDelta": 3,
+        }
+      }
+      onChange={[Function]}
+      onLayout={[Function]}
+      onMapReady={[Function]}
+      onMarkerPress={[Function]}
+      region={null}
+      style={
+        Object {
+          "height": 300,
+          "width": "100%",
+        }
+      }
+    >
+      <AIRMapUrlTile
+        urlTemplate="https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=5d6cc031484aebd5fabaa15febdd9236"
+      />
+    </AIRMap>
+  </View>,
+]
+`;

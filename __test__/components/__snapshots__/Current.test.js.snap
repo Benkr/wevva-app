@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Current /> renders correctly across screens 1`] = `
+<ActivityIndicator
+  animating={true}
+  color="#fff"
+  hidesWhenStopped={true}
+  size="large"
+/>
+`;
+
+exports[`test against snapshot 1`] = `
+<ActivityIndicator
+  animating={true}
+  color="#fff"
+  hidesWhenStopped={true}
+  size="large"
+/>
+`;

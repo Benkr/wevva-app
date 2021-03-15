@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Day /> renders correctly across screens 1`] = `
+<View
+  style={
+    Object {
+      "color": "#fff",
+      "flexDirection": "row",
+      "height": 55,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "height": 55,
+        "width": "75%",
+      }
+    }
+  >
+    <ActivityIndicator
+      animating={true}
+      color="#fff"
+      hidesWhenStopped={true}
+      size="small"
+    />
+    <Text
+      style={
+        Object {
+          "color": "#fff",
+          "fontSize": 17,
+        }
+      }
+    >
+       - 
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 55,
+        "justifyContent": "center",
+        "width": "25%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#fff",
+          "fontSize": 17,
+        }
+      }
+    >
+       / 
+      °C
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`test against snapshot 1`] = `
+<View
+  style={
+    Object {
+      "color": "#fff",
+      "flexDirection": "row",
+      "height": 55,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "height": 55,
+        "width": "75%",
+      }
+    }
+  >
+    <ActivityIndicator
+      animating={true}
+      color="#fff"
+      hidesWhenStopped={true}
+      size="small"
+    />
+    <Text
+      style={
+        Object {
+          "color": "#fff",
+          "fontSize": 17,
+        }
+      }
+    >
+       - 
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 55,
+        "justifyContent": "center",
+        "width": "25%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#fff",
+          "fontSize": 17,
+        }
+      }
+    >
+       / 
+      °C
+    </Text>
+  </View>
+</View>
+`;

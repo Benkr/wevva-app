@@ -23,8 +23,6 @@ export default function Forecast( conditionsObject: conditionsObject ) {
     )
       .then(response => response.json())
       .then(data => {
-        alert(JSON.stringify(icon));
-        console.log(data);
         setOnecallData(data);
         setIcon(data.hourly[0].weather[0].icon);
         setIsLoaded(true);

@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchScreen /> renders correctly across screens 1`] = `null`;
+
+exports[`test against snapshot 1`] = `null`;

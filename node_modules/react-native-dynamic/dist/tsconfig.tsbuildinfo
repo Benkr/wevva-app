@@ -1,0 +1,281 @@
+{
+  "program": {
+    "fileInfos": {
+      "../../node_modules/typescript/lib/lib.es5.d.ts": {
+        "version": "70ae6416528e68c2ee7b62892200d2ca631759943d4429f8b779b947ff1e124d",
+        "signature": "70ae6416528e68c2ee7b62892200d2ca631759943d4429f8b779b947ff1e124d",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.d.ts": {
+        "version": "dc47c4fa66b9b9890cf076304de2a9c5201e94b740cffdf09f87296d877d71f6",
+        "signature": "dc47c4fa66b9b9890cf076304de2a9c5201e94b740cffdf09f87296d877d71f6",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/typescript/lib/lib.es2015.core.d.ts": {
+        "version": "63e0cc12d0f77394094bd19e84464f9840af0071e5b9358ced30511efef1d8d2",
+        "signature": "63e0cc12d0f77394094bd19e84464f9840af0071e5b9358ced30511efef1d8d2",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.collection.d.ts": {
+        "version": "43fb1d932e4966a39a41b464a12a81899d9ae5f2c829063f5571b6b87e6d2f9c",
+        "signature": "43fb1d932e4966a39a41b464a12a81899d9ae5f2c829063f5571b6b87e6d2f9c",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.generator.d.ts": {
+        "version": "cdccba9a388c2ee3fd6ad4018c640a471a6c060e96f1232062223063b0a5ac6a",
+        "signature": "cdccba9a388c2ee3fd6ad4018c640a471a6c060e96f1232062223063b0a5ac6a",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts": {
+        "version": "42f5e41e5893da663dbf0394268f54f1da4b43dc0ddd2ea4bf471fe5361d6faf",
+        "signature": "42f5e41e5893da663dbf0394268f54f1da4b43dc0ddd2ea4bf471fe5361d6faf",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.promise.d.ts": {
+        "version": "0b7a905675e6cb4211c128f0a3aa47d414b275180a299a9aad5d3ec298abbfc4",
+        "signature": "0b7a905675e6cb4211c128f0a3aa47d414b275180a299a9aad5d3ec298abbfc4",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.proxy.d.ts": {
+        "version": "dfff68b3c34338f6b307a25d4566de15eed7973b0dc5d69f9fde2bcac1c25315",
+        "signature": "dfff68b3c34338f6b307a25d4566de15eed7973b0dc5d69f9fde2bcac1c25315",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.reflect.d.ts": {
+        "version": "cb609802a8698aa28b9c56331d4b53f590ca3c1c3a255350304ae3d06017779d",
+        "signature": "cb609802a8698aa28b9c56331d4b53f590ca3c1c3a255350304ae3d06017779d",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.symbol.d.ts": {
+        "version": "3013574108c36fd3aaca79764002b3717da09725a36a6fc02eac386593110f93",
+        "signature": "3013574108c36fd3aaca79764002b3717da09725a36a6fc02eac386593110f93",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": {
+        "version": "4670208dd7da9d6c774ab1b75c1527a810388c7989c4905de6aaea8561cb9dce",
+        "signature": "4670208dd7da9d6c774ab1b75c1527a810388c7989c4905de6aaea8561cb9dce",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/@types/react/global.d.ts": {
+        "version": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
+        "signature": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/csstype/index.d.ts": {
+        "version": "cd4fba36eeb79a6e2ff14bbe1024cd83ae542c1bd1c2a02ed853ebc251974119",
+        "signature": "cd4fba36eeb79a6e2ff14bbe1024cd83ae542c1bd1c2a02ed853ebc251974119",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/prop-types/index.d.ts": {
+        "version": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
+        "signature": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/react/index.d.ts": {
+        "version": "730b99e073329e2545bd94b68f401baf6cb3b01cd7f9333e3ddaade40abe87fe",
+        "signature": "730b99e073329e2545bd94b68f401baf6cb3b01cd7f9333e3ddaade40abe87fe",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/@types/react-native/globals.d.ts": {
+        "version": "86db09e8c08a21a1e915c72ca276dfd7a62debebe5134aa71fb36ec071638720",
+        "signature": "86db09e8c08a21a1e915c72ca276dfd7a62debebe5134aa71fb36ec071638720",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/@types/react-native/legacy-properties.d.ts": {
+        "version": "818a9a35cf844bd8380e9273b8ed82023c614164d0975f096b8c9b680730cbc3",
+        "signature": "818a9a35cf844bd8380e9273b8ed82023c614164d0975f096b8c9b680730cbc3",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/react-native/batchedbridge.d.ts": {
+        "version": "496293b62091a5bfb97dac7a0055f3e73dfc7b8d8c220000ecf68635c0bef790",
+        "signature": "496293b62091a5bfb97dac7a0055f3e73dfc7b8d8c220000ecf68635c0bef790",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/@types/react-native/devtools.d.ts": {
+        "version": "715ee74e86e7388d2923cd6377fafcf3f86bea534d5cb4c827a1603383fabdb3",
+        "signature": "715ee74e86e7388d2923cd6377fafcf3f86bea534d5cb4c827a1603383fabdb3",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/react-native/launchscreen.d.ts": {
+        "version": "234b97ac9af46707f2315ff395a9b340d37b7dbc8290d91f5d6bd97189d220f3",
+        "signature": "234b97ac9af46707f2315ff395a9b340d37b7dbc8290d91f5d6bd97189d220f3",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/react-native/index.d.ts": {
+        "version": "22f5e7534724db83591e9b9ae7e65307aa954c943b852be7f55da132a9b723c8",
+        "signature": "22f5e7534724db83591e9b9ae7e65307aa954c943b852be7f55da132a9b723c8",
+        "affectsGlobalScope": true
+      },
+      "../src/types.ts": {
+        "version": "39f1b941038bf1cb895bda35e04a0b6dfa3bd9434b3e6878675b7e55329ffa6c",
+        "signature": "3da6051b9a54fb6fa409507d72a9c0c35b2ef38e5a7aa3a3853a364180d034a5",
+        "affectsGlobalScope": false
+      },
+      "../src/context.tsx": {
+        "version": "86c1f015bda345301a8ddd2267ee17ef0725d12ab6ab0be64db40275c6e48d13",
+        "signature": "5325f047ee0924e536ee9c6e488d4a48799caeae4d249f9699823d365b0c799e",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/toolkit.ts/index.d.ts": {
+        "version": "79ffff9ca0e2a03752b44e319900e3a2b0460d5f659ab71294843859292c9582",
+        "signature": "79ffff9ca0e2a03752b44e319900e3a2b0460d5f659ab71294843859292c9582",
+        "affectsGlobalScope": false
+      },
+      "../src/dynamic-value.ts": {
+        "version": "2cee7ee6d629ea0ed792c92a897bf0b2bfd72a6393446b3455fd33f4e43d8512",
+        "signature": "d1c7ec1688e264ee6a3a2b68603274f60f4a8c4ae673d5797dd58d93be6decc4",
+        "affectsGlobalScope": false
+      },
+      "../src/dynamic-style-sheet.ts": {
+        "version": "7710cba85298e34f69982b00aceb8e6a5713da7e04ac23339886638c8cb18ab2",
+        "signature": "0ae4f9ec0e4170051774d9ad8c78015e90081529d034d95403485342d7156232",
+        "affectsGlobalScope": false
+      },
+      "../src/use-dark-mode.ts": {
+        "version": "380fdafa7ceb38ada932f18de55dca41be952b889f64b012c40a9ba27465557a",
+        "signature": "ee99fa5746efc71af938281ecbffe0691c956e7b742a8865626aafbae5493615",
+        "affectsGlobalScope": false
+      },
+      "../src/index.ts": {
+        "version": "1b7d7014de039ae0fcfb5be95761138245dc394aefd96651cb9e7bbea7f22d5a",
+        "signature": "d8805e234623f7a5987903cfe9d3fc09e9909467f6e586e56aca2b8e8dbace8a",
+        "affectsGlobalScope": false
+      }
+    },
+    "options": {
+      "strict": true,
+      "noImplicitAny": true,
+      "allowSyntheticDefaultImports": true,
+      "jsx": 2,
+      "lib": [
+        "lib.es2015.d.ts"
+      ],
+      "moduleResolution": 2,
+      "target": 99,
+      "declaration": true,
+      "incremental": true,
+      "sourceMap": true,
+      "outDir": "./",
+      "baseUrl": "..",
+      "paths": {
+        "react": [
+          "../example/node_modules/react"
+        ]
+      },
+      "configFilePath": "../tsconfig.json"
+    },
+    "referencedMap": {
+      "../node_modules/@types/react-native/devtools.d.ts": [
+        "../node_modules/@types/react-native/devtools.d.ts"
+      ],
+      "../node_modules/@types/react-native/index.d.ts": [
+        "../node_modules/@types/react-native/batchedbridge.d.ts",
+        "../node_modules/@types/react-native/devtools.d.ts",
+        "../node_modules/@types/react-native/globals.d.ts",
+        "../node_modules/@types/react-native/launchscreen.d.ts",
+        "../node_modules/@types/react-native/legacy-properties.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@types/react-native/legacy-properties.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts"
+      ],
+      "../node_modules/@types/react/index.d.ts": [
+        "../node_modules/@types/prop-types/index.d.ts",
+        "../node_modules/@types/react/global.d.ts",
+        "../node_modules/csstype/index.d.ts"
+      ],
+      "../src/context.tsx": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types.ts"
+      ],
+      "../src/dynamic-style-sheet.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/toolkit.ts/index.d.ts",
+        "../src/dynamic-value.ts",
+        "../src/types.ts"
+      ],
+      "../src/dynamic-value.ts": [
+        "../src/context.tsx"
+      ],
+      "../src/index.ts": [
+        "../src/context.tsx",
+        "../src/dynamic-style-sheet.ts",
+        "../src/dynamic-value.ts",
+        "../src/types.ts",
+        "../src/use-dark-mode.ts"
+      ],
+      "../src/use-dark-mode.ts": [
+        "../src/context.tsx"
+      ]
+    },
+    "exportedModulesMap": {
+      "../node_modules/@types/react-native/devtools.d.ts": [
+        "../node_modules/@types/react-native/devtools.d.ts"
+      ],
+      "../node_modules/@types/react-native/index.d.ts": [
+        "../node_modules/@types/react-native/batchedbridge.d.ts",
+        "../node_modules/@types/react-native/devtools.d.ts",
+        "../node_modules/@types/react-native/globals.d.ts",
+        "../node_modules/@types/react-native/launchscreen.d.ts",
+        "../node_modules/@types/react-native/legacy-properties.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@types/react-native/legacy-properties.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts"
+      ],
+      "../node_modules/@types/react/index.d.ts": [
+        "../node_modules/@types/prop-types/index.d.ts",
+        "../node_modules/@types/react/global.d.ts",
+        "../node_modules/csstype/index.d.ts"
+      ],
+      "../src/context.tsx": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types.ts"
+      ],
+      "../src/dynamic-style-sheet.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../src/dynamic-value.ts"
+      ],
+      "../src/index.ts": [
+        "../src/context.tsx",
+        "../src/dynamic-style-sheet.ts",
+        "../src/dynamic-value.ts",
+        "../src/types.ts",
+        "../src/use-dark-mode.ts"
+      ]
+    },
+    "semanticDiagnosticsPerFile": [
+      "../node_modules/@types/prop-types/index.d.ts",
+      "../node_modules/@types/react-native/batchedbridge.d.ts",
+      "../node_modules/@types/react-native/devtools.d.ts",
+      "../node_modules/@types/react-native/globals.d.ts",
+      "../node_modules/@types/react-native/index.d.ts",
+      "../node_modules/@types/react-native/launchscreen.d.ts",
+      "../node_modules/@types/react-native/legacy-properties.d.ts",
+      "../node_modules/@types/react/global.d.ts",
+      "../node_modules/@types/react/index.d.ts",
+      "../node_modules/csstype/index.d.ts",
+      "../node_modules/toolkit.ts/index.d.ts",
+      "../src/context.tsx",
+      "../src/dynamic-style-sheet.ts",
+      "../src/dynamic-value.ts",
+      "../src/index.ts",
+      "../src/types.ts",
+      "../src/use-dark-mode.ts",
+      "../../node_modules/typescript/lib/lib.es2015.collection.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.core.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.generator.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.promise.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+      "../../node_modules/typescript/lib/lib.es5.d.ts"
+    ]
+  },
+  "version": "3.9.5"
+}
