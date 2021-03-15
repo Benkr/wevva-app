@@ -5,7 +5,7 @@ import { Icon } from 'galio-framework';
 import Images from '../assets/index.js';
 import { styles } from '../styles/styles';
 import { Capitalize } from '../helpers';
-const EXPO_API_KEY_OWM = '57311a90a3e7cbf52c5f885c10d6c755';
+import { EXPO_API_KEY_OWM as weatherAPI } from '@env';
 
 export default function Current({ lat, lon, liveLocation }) {
   const [city, setCity] = useState(null);
@@ -20,7 +20,7 @@ export default function Current({ lat, lon, liveLocation }) {
     fetch(
       `https://api.openweathermap.org/data/2.5/weather?lat=${JSON.stringify(
         lat
-      )}&lon=${JSON.stringify(lon)}&appid=${EXPO_API_KEY_OWM}&units=metric`
+      )}&lon=${JSON.stringify(lon)}&appid=${weatherAPI}&units=metric`
     )
       .then((response) => response.json())
       .then((data) => {

@@ -3,14 +3,14 @@ import { Text, View } from 'react-native';
 import { styles } from '../styles/styles';
 import { degToCard, measureUVI } from '../helpers';
 // import { EXPO_API_KEY_AMBEE } from '@env';
-export interface conditionsObject {
+export interface conditionsInterface {
   data?: any;
   lat?: any;
   lon?: any;
   liveLocation?: any;
 }
 
-export default function Conditions(conditionsObject: conditionsObject) {
+export default function Conditions(conditionsObject: conditionsInterface) {
   const conditions = conditionsObject.data.hourly[0];
   const [grassPollen] = useState('Low');
   const [treePollen] = useState('Moderate');

@@ -8,7 +8,7 @@ import Images from '../assets/index.js';
 import LottieView from 'lottie-react-native';
 
 export default function SevenDay({ data }) {
-  const daily = data.daily.slice(1, 8);
+  const daily: any = data.daily.slice(1, 8);
 
   return (
     <>

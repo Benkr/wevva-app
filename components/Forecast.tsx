@@ -6,12 +6,13 @@ import Current from './Current';
 import Days from './Days';
 import Hourly from './Hourly';
 import SevenDay from './SevenDay';
-import Conditions, { conditionsObject } from './Conditions';
+import Conditions, { conditionsInterface } from './Conditions';
 import AirPollution from './AirPollution';
 import Loading from './Loading';
 import Map from './Map';
-const EXPO_API_KEY_OWM = '57311a90a3e7cbf52c5f885c10d6c755';
-export default function Forecast( conditionsObject: conditionsObject ) {
+import { EXPO_API_KEY_OWM as weatherAPI } from '@env';
+
+export default function Forecast( conditionsObject: conditionsInterface ) {
   const [onecallData, setOnecallData] = useState<any>(null);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [icon, setIcon] = useState<any>(null);
@@ -19,7 +20,7 @@ export default function Forecast( conditionsObject: conditionsObject ) {
   // saved location)
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${conditionsObject.lat}&lon=${conditionsObject.lon}&appid=${EXPO_API_KEY_OWM}&units=metric&exclude=current,minutely`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${conditionsObject.lat}&lon=${conditionsObject.lon}&appid=${weatherAPI}&units=metric&exclude=current,minutely`
     )
       .then(response => response.json())
       .then(data => {

@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import MapView, { UrlTile } from 'react-native-maps';
 import { styles } from '../styles/styles';
 import nightMapStyle from '../styles/nightMapStyle.json';
-const EXPO_API_KEY_OWM = '57311a90a3e7cbf52c5f885c10d6c755';
+import { EXPO_API_KEY_OWM as weatherAPI } from '@env';
 
 
 // Displays map of location with Open Weather Map tiles on top showing areas of rain. Quality is generally bad however
@@ -26,7 +26,7 @@ export default function Map({ lat, lon, timeOfDay }) {
         >
           <UrlTile
             key="weatherTile"
-            urlTemplate={`https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${EXPO_API_KEY_OWM}`}
+            urlTemplate={`https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${weatherAPI}`}
           />
         </MapView>
       </View>
