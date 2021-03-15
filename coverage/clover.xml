@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1615835867643" clover="3.2.0">
-  <project timestamp="1615835867644" name="All files">
-    <metrics statements="93" coveredstatements="80" conditionals="64" coveredconditionals="56" methods="11" coveredmethods="9" elements="168" coveredelements="145" complexity="0" loc="93" ncloc="93" packages="3" files="3" classes="3"/>
+<coverage generated="1615837753216" clover="3.2.0">
+  <project timestamp="1615837753216" name="All files">
+    <metrics statements="93" coveredstatements="89" conditionals="64" coveredconditionals="64" methods="11" coveredmethods="10" elements="168" coveredelements="163" complexity="0" loc="93" ncloc="93" packages="3" files="3" classes="3"/>
     <package name="wevva-app">
-      <metrics statements="91" coveredstatements="80" conditionals="64" coveredconditionals="56" methods="11" coveredmethods="9"/>
+      <metrics statements="91" coveredstatements="89" conditionals="64" coveredconditionals="64" methods="11" coveredmethods="10"/>
       <file name="helpers.js" path="/mnt/d/Administrator/Docs/Codeworks/senior/legacyProject/repo-ben/wevva-app/helpers.js">
-        <metrics statements="91" coveredstatements="80" conditionals="64" coveredconditionals="56" methods="11" coveredmethods="9"/>
+        <metrics statements="91" coveredstatements="89" conditionals="64" coveredconditionals="64" methods="11" coveredmethods="10"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
@@ -88,15 +88,15 @@
         <line num="122" count="2" type="stmt"/>
         <line num="124" count="1" type="stmt"/>
         <line num="129" count="1" type="stmt"/>
-        <line num="130" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="131" count="0" type="stmt"/>
-        <line num="132" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="133" count="0" type="stmt"/>
-        <line num="134" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="135" count="0" type="stmt"/>
-        <line num="136" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="137" count="0" type="stmt"/>
-        <line num="139" count="0" type="stmt"/>
+        <line num="130" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="131" count="2" type="stmt"/>
+        <line num="132" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="133" count="2" type="stmt"/>
+        <line num="134" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="135" count="2" type="stmt"/>
+        <line num="136" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="137" count="2" type="stmt"/>
+        <line num="139" count="1" type="stmt"/>
       </file>
     </package>
     <package name="wevva-app.assets">

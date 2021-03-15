@@ -5,6 +5,7 @@ import {
   measureNH3,
   measureNO2,
   measureO3,
+  measurePM10,
   measurePM25,
   measureSO2,
   measureUVI,

@@ -1,13 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import * as Location from 'expo-location';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Alert } from 'react-native';
 
-interface appProviderInterface{
-  addCity?: any;
-  removeCity?: any;
-  savedCityList?: any;
-}
-const AppContext = React.createContext();
+const AppContext = React.createContext(null);
+
 export function useApp() {
   return useContext(AppContext);
 }
@@ -22,7 +19,7 @@ export default function AppProvider({ children }) {
     try {
       await AsyncStorage.setItem('@wevva-app', JSON.stringify(value));
     } catch (e) {
-      alert(e);
+      Alert.alert(e);
     }
   };
 
@@ -32,7 +29,7 @@ export default function AppProvider({ children }) {
     (async () => {
       let { status } = await Location.requestPermissionsAsync();
       if (status !== 'granted') {
-        alert('Permission to access location was denied');
+        Alert.alert('Permission to access location was denied');
         return;
       }
       let currentLocation = await Location.getCurrentPositionAsync({
@@ -50,7 +47,7 @@ export default function AppProvider({ children }) {
           setSavedCityList(JSON.parse(value));
         }
       } catch (e) {
-        alert(e);
+        Alert.alert(e);
       }
     })();
   }, []);

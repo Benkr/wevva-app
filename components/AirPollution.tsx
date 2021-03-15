@@ -12,15 +12,19 @@ import {
   measurePM10,
 } from '../helpers';
 
-export default function AirPollution({ lat, lon }) {
-  const [airPollution, setAirPollution] = useState(null);
+interface CoordinateInterface {
+  lat: number;
+  lon: number;
+}
 
+export default function AirPollution(coordinates: CoordinateInterface) {
+  const [airPollution, setAirPollution] = useState(null);
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${EXPO_API_KEY_OWM}`
+      `https://api.openweathermap.org/data/2.5/air_pollution?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${EXPO_API_KEY_OWM}`
     )
-      .then((response) => response.json())
-      .then((data) => {
+      .then((response: any) => response.json())
+      .then((data: any) => {
         setAirPollution(data.list[0]);
       });
   }, []);
