@@ -70,7 +70,7 @@ export default function Current({ lat, lon, liveLocation }) {
           <TouchableOpacity
             onPress={changeTempScale}>
             <Text style={styles.headlineText}>
-              {headline} {temp}°C
+              {headline} {temp}{measureSystem === 'metric' ? '°C' : '°F'}
             </Text>
           </TouchableOpacity>
         </View>

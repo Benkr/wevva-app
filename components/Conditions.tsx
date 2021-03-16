@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { styles } from '../styles/styles';
 import { degToCard, measureUVI } from '../helpers';
+import { useApp } from '../AppContext';
 // import { EXPO_API_KEY_AMBEE } from '@env';
 export interface conditionsInterface {
   data?: any;
@@ -11,6 +12,7 @@ export interface conditionsInterface {
 }
 
 export default function Conditions(conditionsObject: conditionsInterface) {
+  const { measureSystem } = useApp();
   const conditions = conditionsObject.data.hourly[0];
   const [grassPollen] = useState('Low');
   const [treePollen] = useState('Moderate');
@@ -45,7 +47,7 @@ export default function Conditions(conditionsObject: conditionsInterface) {
             <View style={styles.conditionsPair}>
               <Text style={styles.conditionsTextTitle}>Feels like</Text>
               <Text style={styles.conditionsTextResult}>
-                {Math.round(conditions.feels_like)}°C
+                {Math.round(conditions.feels_like)}{measureSystem === 'metric' ? '°C' : '°F'}
               </Text>
             </View>
             <View style={styles.conditionsPair}>
@@ -57,7 +59,7 @@ export default function Conditions(conditionsObject: conditionsInterface) {
             <View style={styles.conditionsPair}>
               <Text style={styles.conditionsTextTitle}>Wind</Text>
               <Text style={styles.conditionsTextResult}>
-                {Math.round(conditions.wind_speed)}km/h{' '}
+                {Math.round(conditions.wind_speed)}{measureSystem === 'metric' ? 'km/h' : 'mi/h'}{' - '}
                 {degToCard(conditions.wind_deg)}
               </Text>
             </View>

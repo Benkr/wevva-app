@@ -3,8 +3,10 @@ import { Text, View, ActivityIndicator } from 'react-native';
 import Images from '../assets/index.js';
 import LottieView from 'lottie-react-native';
 import { styles } from '../styles/styles';
+import { useApp } from '../AppContext';
 
 export default function Day({ name, icon, headline, minTemp, maxTemp }) {
+  const { measureSystem } = useApp();
   return (
     <View style={styles.forecastList}>
       <View style={styles.forecastListLeft}>
@@ -24,7 +26,7 @@ export default function Day({ name, icon, headline, minTemp, maxTemp }) {
       </View>
       <View style={styles.forecastListRight}>
         <Text style={styles.forecastText}>
-          {minTemp} / {maxTemp}°C
+          {minTemp} / {maxTemp}{measureSystem === 'metric' ? '°C' : '°F'}
         </Text>
       </View>
     </View>
