@@ -6,7 +6,7 @@ import Flag from 'react-native-flags';
 import { StatusBar } from 'expo-status-bar';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
 import { Icon } from 'galio-framework';
-import { EXPO_API_KEY_OWM as weatherAPI } from '@env';
+import { EXPO_API_KEY_OWM as weatherAPI, BASE_URL as baseUrl } from '@env';
 import { styles } from '../styles/styles';
 import { useApp } from '../AppContext';
 
@@ -21,16 +21,18 @@ export default function SearchScreen({ navigation }) {
     debounceSearch(searchString);
   }, [searchString]);
 
-  const handleChange = (textValue) => {
+  const handleChange: any = (textValue: string) => {
     setSearchString(textValue);
   };
+
   const debounceSearch: any = useCallback(
-    AwesomeDebouncePromise((searchString) => fetchCities(searchString), 1000),
+    AwesomeDebouncePromise((searchString: string) => fetchCities(searchString), 1000),
     []
   );
-  const fetchCities = (string) => {
+
+  const fetchCities: any = (cityName: string) => {
     fetch(
-      `https://api.openweathermap.org/geo/1.0/direct?q=${string}&appid=${weatherAPI}&limit=25`
+      `${baseUrl}geo/1.0/direct?q=${cityName}&appid=${weatherAPI}&limit=25`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -57,7 +59,7 @@ export default function SearchScreen({ navigation }) {
               inputStyle={styles.searchInput}
             />
             {searchResult.length
-              ? searchResult.map((city) => {
+              ? searchResult.map((city: any) => {
                   return (
                     <TouchableOpacity
                       key={`${city.name}${city.lat}${city.lon}`}
@@ -117,8 +119,8 @@ export default function SearchScreen({ navigation }) {
                   );
                 })
               : savedCityList
-                  .map((city) => (city = JSON.parse(city)))
-                  .map((city) => {
+                  .map((city: any) => (city = JSON.parse(city)))
+                  .map((city: any) => {
                     return (
                       <TouchableOpacity
                         key={`${city.lat}${city.lon}`}

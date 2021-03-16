@@ -1,29 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { View, ImageBackground } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import { Location } from '../lib/interfaces';
 import { styles } from '../styles/styles';
 import Current from './Current';
 import Days from './Days';
 import Hourly from './Hourly';
 import SevenDay from './SevenDay';
-import Conditions, { conditionsInterface } from './Conditions';
+import Conditions from './Conditions';
 import AirPollution from './AirPollution';
 import Loading from './Loading';
 import Map from './Map';
-import { EXPO_API_KEY_OWM as weatherAPI } from '@env';
+import { EXPO_API_KEY_OWM as weatherAPI, BASE_URL as baseUrl } from '@env';
 import { useApp } from '../AppContext';
 
-export default function Forecast( conditionsObject: conditionsInterface ) {
+export default function Forecast(locationObject: Location) {
   const { measureSystem } = useApp();
   const [onecallData, setOnecallData] = useState<any>(null);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [icon, setIcon] = useState<any>(null);
 
+  const { lat, lon, liveLocation } = locationObject;
+
   // API call retrieves forecast data for location based on long/lat from Open Weather Map (live or
   // saved location)
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${conditionsObject.lat}&lon=${conditionsObject.lon}&appid=${weatherAPI}&units=${measureSystem}&exclude=current,minutely`
+      `${baseUrl}data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${weatherAPI}&units=${measureSystem}&exclude=current,minutely`
     )
       .then(response => response.json())
       .then(data => {
@@ -45,13 +48,13 @@ export default function Forecast( conditionsObject: conditionsInterface ) {
           <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.appContainer}>
               <View style={styles.forecastContainer}>
-                <Current lat={conditionsObject.lat} lon={conditionsObject.lon} liveLocation={conditionsObject.liveLocation} />
+                <Current lat={lat} lon={lon} liveLocation={liveLocation} />
                 <Days data={onecallData} />
                 <Hourly data={onecallData} />
                 <SevenDay data={onecallData} />
-                <Conditions data={onecallData} lat={conditionsObject.lat} lon={conditionsObject.lon} />
-                <Map lat={conditionsObject.lat} lon={conditionsObject.lon} timeOfDay={icon[2]} />
-                <AirPollution lat={conditionsObject.lat} lon={conditionsObject.lon} />
+                <Conditions data={onecallData} lat={lat} lon={lon} />
+                <Map lat={lat} lon={lon} timeOfDay={icon[2]} />
+                <AirPollution lat={lat} lon={lon} />
               </View>
             </View>
           </ScrollView>

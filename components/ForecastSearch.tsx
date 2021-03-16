@@ -11,7 +11,7 @@ import Conditions from './Conditions';
 import AirPollution from './AirPollution';
 import Loading from './Loading';
 import Map from './Map';
-import { EXPO_API_KEY_OWM as weatherAPI } from '@env';
+import { EXPO_API_KEY_OWM as weatherAPI, BASE_URL as baseUrl } from '@env';
 import { useApp } from '../AppContext';
 
 // Seperate Forecast component created specifically for searched cities, as a stack navigator passes
@@ -29,7 +29,7 @@ export default function ForecastSearch(props) {
   // API call retrieves forecast data for searched location based on long/lat from Open Weather Map
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${weatherAPI}&units=${measureSystem}&exclude=current,minutely`
+      `${baseUrl}data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${weatherAPI}&units=${measureSystem}&exclude=current,minutely`
     )
       .then((response) => response.json())
       .then((data) => {
