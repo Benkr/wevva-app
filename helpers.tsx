@@ -1,27 +1,27 @@
 import { format } from 'date-fns';
 
 // Capitalises the first letter of the headline
-export const Capitalize = (str) => {
+export const Capitalize = (str: string) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
 // Calculates the date 2 days from now and returns the name of the day
 export const tomorrowPlusOne = () => {
-  const twoDaysFromNow = new Date().getTime() + 86400000 * 2;
+  const twoDaysFromNow: number = new Date().getTime() + 86400000 * 2;
   return format(new Date(twoDaysFromNow), 'eeee');
 };
 
 // Converts wind direction in degrees to letter format - i.e. 5km/h NE (North-East)
-export const degToCard = (deg) => {
-  const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
-  let degrees = (deg * 8) / 360;
-  degrees = Math.round(degrees, 0);
+export const degToCard = (deg: number) => {
+  const directions: string[] = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+  let degrees: number = (deg * 8) / 360;
+  degrees = Math.round(degrees);
   degrees = (degrees + 8) % 8;
   return directions[degrees];
 };
 
 // Converts UV Index to a string based on extremity
-export const measureUVI = (num) => {
+export const measureUVI = (num: number) => {
   if (num <= 2) {
     return 'Low';
   } else if (num <= 5) {
@@ -36,7 +36,7 @@ export const measureUVI = (num) => {
 };
 
 // Converts CO level to a string based on extremity
-export const measureCO = (num) => {
+export const measureCO = (num: number) => {
   if (num <= 1000) {
     return 'Low';
   } else if (num <= 10000) {
@@ -51,7 +51,7 @@ export const measureCO = (num) => {
 };
 
 // Converts NO & NO2 level to a string based on extremity
-export const measureNO2 = (num) => {
+export const measureNO2 = (num: number) => {
   if (num <= 40) {
     return 'Low';
   } else if (num <= 80) {
@@ -66,7 +66,7 @@ export const measureNO2 = (num) => {
 };
 
 // Converts O3 level to a string based on extremity
-export const measureO3 = (num) => {
+export const measureO3 = (num: number) => {
   if (num <= 20) {
     return 'Low';
   } else if (num <= 40) {
@@ -81,7 +81,7 @@ export const measureO3 = (num) => {
 };
 
 // Converts SO2 level to a string based on extremity
-export const measureSO2 = (num) => {
+export const measureSO2 = (num: number) => {
   if (num <= 20) {
     return 'Low';
   } else if (num <= 125) {
@@ -96,7 +96,7 @@ export const measureSO2 = (num) => {
 };
 
 // Converts NH3 level to a string based on extremity
-export const measureNH3 = (num) => {
+export const measureNH3 = (num: number) => {
   if (num <= 400) {
     return 'Low';
   } else if (num <= 800) {
@@ -111,7 +111,7 @@ export const measureNH3 = (num) => {
 };
 
 // Converts PM2.5 level to a string based on extremity
-export const measurePM25 = (num) => {
+export const measurePM25 = (num: number) => {
   if (num <= 10) {
     return 'Low';
   } else if (num <= 25) {
@@ -126,7 +126,7 @@ export const measurePM25 = (num) => {
 };
 
 // Converts PM10 level to a string based on extremity
-export const measurePM10 = (num) => {
+export const measurePM10 = (num: number) => {
   if (num <= 20) {
     return 'Low';
   } else if (num <= 50) {

@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import * as Location from 'expo-location';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Alert } from 'react-native';
 
-const AppContext = React.createContext();
+const AppContext = React.createContext(null);
+
 export function useApp() {
   return useContext(AppContext);
 }
@@ -11,13 +13,22 @@ export default function AppProvider({ children }) {
   const [savedCityList, setSavedCityList] = useState([]);
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
+  const [measureSystem, setMeasureSystem] = useState('metric');
 
   // Saves list of saved cities in to local phone storage, which will be persisted in memory
   const storeData = async (value) => {
     try {
       await AsyncStorage.setItem('@wevva-app', JSON.stringify(value));
     } catch (e) {
-      alert(e);
+      Alert.alert(e);
+    }
+  };
+
+  const unitPreference = async (value) => {
+    try {
+      await AsyncStorage.setItem('@wevva-app/unit', JSON.stringify(value));
+    } catch (e) {
+      Alert.alert(e);
     }
   };
 
@@ -27,11 +38,11 @@ export default function AppProvider({ children }) {
     (async () => {
       let { status } = await Location.requestPermissionsAsync();
       if (status !== 'granted') {
-        alert('Permission to access location was denied');
+        Alert.alert('Permission to access location was denied');
         return;
       }
       let currentLocation = await Location.getCurrentPositionAsync({
-        enableHighAccuracy: true,
+        accuracy: 6,
       });
       setLatitude(currentLocation.coords.latitude);
       setLongitude(currentLocation.coords.longitude);
@@ -41,11 +52,15 @@ export default function AppProvider({ children }) {
     (async () => {
       try {
         const value = await AsyncStorage.getItem('@wevva-app');
-        if (value !== null) {
+        const units = await AsyncStorage.getItem('@wevva-app/unit');
+        if (value) {
           setSavedCityList(JSON.parse(value));
         }
+        if (units !== null) {
+          setMeasureSystem(JSON.parse(units));
+        }
       } catch (e) {
-        alert(e);
+        Alert.alert(e);
       }
     })();
   }, []);
@@ -69,8 +84,11 @@ export default function AppProvider({ children }) {
         savedCityList: savedCityList,
         latitude: latitude,
         longitude: longitude,
+        measureSystem: measureSystem,
+        setMeasureSystem: setMeasureSystem,
         addCity: addCity,
         removeCity: removeCity,
+        unitPreference: unitPreference,
       }}
     >
       {children}

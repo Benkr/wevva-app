@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
+import { Location } from '../lib/interfaces';
 import { styles } from '../styles/styles';
 import { degToCard, measureUVI } from '../helpers';
+import { useApp } from '../AppContext';
 // import { EXPO_API_KEY_AMBEE } from '@env';
 
-export default function Conditions({ data }) {
-  const conditions = data.hourly[0];
-  const [grassPollen] = useState('Low');
-  const [treePollen] = useState('Moderate');
-  const [weedPollen] = useState('Low');
+// interface conditionsInterface {
+//   data?: any;
+//   lat?: any;
+//   lon?: any;
+//   liveLocation?: any;
+// }
+
+export default function Conditions(locationObject: Location) {
+  const { measureSystem } = useApp();
+  const [grassPollen] = useState<any>('Low');
+  const [treePollen] = useState<any>('Moderate');
+  const [weedPollen] = useState<any>('Low');
+  
+  const hourlyConditions: any = locationObject.data.hourly[0];
 
   // Was using Ambee API to obtain pollen count information but API is very slow and they blocked me, therefore
   // pollen count is using mock data at the moment.
@@ -39,26 +50,26 @@ export default function Conditions({ data }) {
             <View style={styles.conditionsPair}>
               <Text style={styles.conditionsTextTitle}>Feels like</Text>
               <Text style={styles.conditionsTextResult}>
-                {Math.round(conditions.feels_like)}°C
+                {Math.round(hourlyConditions.feels_like)}{measureSystem === 'metric' ? '°C' : '°F'}
               </Text>
             </View>
             <View style={styles.conditionsPair}>
               <Text style={styles.conditionsTextTitle}>Humidity</Text>
               <Text style={styles.conditionsTextResult}>
-                {conditions.humidity}%
+                {hourlyConditions.humidity}%
               </Text>
             </View>
             <View style={styles.conditionsPair}>
               <Text style={styles.conditionsTextTitle}>Wind</Text>
               <Text style={styles.conditionsTextResult}>
-                {Math.round(conditions.wind_speed)}km/h{' '}
-                {degToCard(conditions.wind_deg)}
+                {Math.round(hourlyConditions.wind_speed)}{measureSystem === 'metric' ? 'km/h' : 'mi/h'}{' - '}
+                {degToCard(hourlyConditions.wind_deg)}
               </Text>
             </View>
             <View style={styles.conditionsPair}>
               <Text style={styles.conditionsTextTitle}>Precipitation</Text>
               <Text style={styles.conditionsTextResult}>
-                {Math.round(conditions.pop)}%
+                {Math.round(hourlyConditions.pop)}%
               </Text>
             </View>
           </View>
@@ -66,8 +77,8 @@ export default function Conditions({ data }) {
             <View style={styles.conditionsPair}>
               <Text style={styles.conditionsTextTitle}>UV Index</Text>
               <Text style={styles.conditionsTextResult}>
-                {Math.round(conditions.uvi)} -{' '}
-                {measureUVI(Math.round(conditions.uvi))}
+                {Math.round(hourlyConditions.uvi)} -{' '}
+                {measureUVI(Math.round(hourlyConditions.uvi))}
               </Text>
             </View>
             <View style={styles.conditionsPair}>

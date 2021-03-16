@@ -6,7 +6,6 @@ import Day from './Day';
 
 export default function Days({ data }) {
   const { daily } = data;
-
   return (
     <>
       {daily ? (

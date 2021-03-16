@@ -1,42 +1,60 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, ActivityIndicator } from 'react-native';
+import { Text, View, ActivityIndicator, TouchableOpacity } from 'react-native';
 import LottieView from 'lottie-react-native';
 import { Icon } from 'galio-framework';
+import { Location } from '../lib/interfaces';
 import Images from '../assets/index.js';
 import { styles } from '../styles/styles';
 import { Capitalize } from '../helpers';
-import { EXPO_API_KEY_OWM } from '@env';
+import { EXPO_API_KEY_OWM as weatherAPI, BASE_URL as baseUrl } from '@env';
+import { useApp } from '../AppContext';
 
-export default function Current({ lat, lon, liveLocation }) {
-  const [city, setCity] = useState(null);
-  const [icon, setIcon] = useState(null);
-  const [headline, setHeadline] = useState(null);
-  const [temp, setTemp] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+// interface conditionsInterface {
+//   lat: number,
+//   lon: number,
+//   liveLocation?: boolean
+// }
 
+export default function Current(locationObject: Location) {
+  const { measureSystem, setMeasureSystem, unitPreference } = useApp();
+  const [city, setCity] = useState<any>(null);
+  const [icon, setIcon] = useState<any>(null);
+  const [headline, setHeadline] = useState<any>(null);
+  const [temp, setTemp] = useState<any>(null);
+  const [isLoaded, setIsLoaded] = useState<any>(false);
+
+  const { lat, lon, liveLocation } = locationObject;
   // Second API call - required to obtain current conditions which are not part of the OneCall API
   // fetched in Forecast
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${JSON.stringify(
-        lat
-      )}&lon=${JSON.stringify(lon)}&appid=${EXPO_API_KEY_OWM}&units=metric`
+      `${baseUrl}data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherAPI}&units=${measureSystem}`
     )
-      .then((response) => response.json())
-      .then((data) => {
+      .then((response: any) => response.json())
+      .then((data: any) => {
         setCity(data.name);
         setHeadline(Capitalize(data.weather[0].description));
         setTemp(Math.round(data.main.temp));
         setIcon(data.weather[0].icon);
         setIsLoaded(true);
       });
-  }, []);
-
+  }, [measureSystem]);
+  
+  
   // Renders location-pin icon which only displays when forecast page is based on the user's live
   // location
   const locationIcon = (
     <Icon name="location-pin" family="Entypo" color="white" size={30} />
   );
+  const changeTempScale = () => {
+    if (measureSystem === 'metric') {
+      setMeasureSystem('imperial');
+      unitPreference('imperial');
+    } else {
+      setMeasureSystem('metric');
+      unitPreference('metric');
+    }
+  }
 
   return (
     <>
@@ -59,9 +77,12 @@ export default function Current({ lat, lon, liveLocation }) {
               {city}
             </Text>
           )}
-          <Text style={styles.headlineText}>
-            {headline} {temp}°C
-          </Text>
+          <TouchableOpacity
+            onPress={changeTempScale}>
+            <Text style={styles.headlineText}>
+              {headline} {temp}{measureSystem === 'metric' ? '°C' : '°F'}
+            </Text>
+          </TouchableOpacity>
         </View>
       ) : (
         <ActivityIndicator size="large" color="#fff" />

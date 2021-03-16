@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View } from 'react-native';
+import { Location } from '../lib/interfaces';
 import { styles } from '../styles/styles';
-import { EXPO_API_KEY_OWM } from '@env';
+import { EXPO_API_KEY_OWM as weatherAPI, BASE_URL as baseUrl } from '@env';
+
 import {
   measureCO,
   measureNO2,
@@ -12,15 +14,22 @@ import {
   measurePM10,
 } from '../helpers';
 
-export default function AirPollution({ lat, lon }) {
-  const [airPollution, setAirPollution] = useState(null);
+// interface CoordinateInterface {
+//   lat: number;
+//   lon: number;
+// }
+
+export default function AirPollution(locationObject: Location) {
+  const [airPollution, setAirPollution] = useState<any>(null);
+
+  const { lat, lon } = locationObject;
 
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${EXPO_API_KEY_OWM}`
+      `${baseUrl}data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${weatherAPI}`
     )
-      .then((response) => response.json())
-      .then((data) => {
+      .then((response: any) => response.json())
+      .then((data: any) => {
         setAirPollution(data.list[0]);
       });
   }, []);
