@@ -12,12 +12,14 @@ import AirPollution from './AirPollution';
 import Loading from './Loading';
 import Map from './Map';
 import { EXPO_API_KEY_OWM as weatherAPI } from '@env';
+import { useApp } from '../AppContext';
 
 // Seperate Forecast component created specifically for searched cities, as a stack navigator passes
 // data as props.route.params instead of just props. Also layout requires a back button. Potential
 // to refactor Forecast component to compensate for both cases in future.
 
 export default function ForecastSearch(props) {
+  const { measureSystem } = useApp();
   const [onecallData, setOnecallData] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [icon, setIcon] = useState(null);
@@ -27,7 +29,7 @@ export default function ForecastSearch(props) {
   // API call retrieves forecast data for searched location based on long/lat from Open Weather Map
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${weatherAPI}&units=metric&exclude=current,minutely`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${weatherAPI}&units=${measureSystem}&exclude=current,minutely`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -35,7 +37,7 @@ export default function ForecastSearch(props) {
         setIcon(data.hourly[0].weather[0].icon);
         setIsLoaded(true);
       });
-  }, []);
+  }, [measureSystem]);
 
   return (
     <>

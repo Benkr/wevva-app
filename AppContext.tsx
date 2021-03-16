@@ -13,6 +13,7 @@ export default function AppProvider({ children }) {
   const [savedCityList, setSavedCityList] = useState([]);
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
+  const [measureSystem, setMeasureSystem] = useState('metric');
 
   // Saves list of saved cities in to local phone storage, which will be persisted in memory
   const storeData = async (value) => {
@@ -71,6 +72,8 @@ export default function AppProvider({ children }) {
         savedCityList: savedCityList,
         latitude: latitude,
         longitude: longitude,
+        measureSystem: measureSystem,
+        setMeasureSystem: setMeasureSystem,
         addCity: addCity,
         removeCity: removeCity,
       }}

@@ -6,8 +6,11 @@ import Images from '../assets/index.js';
 import { styles } from '../styles/styles';
 import { Capitalize } from '../helpers';
 import { EXPO_API_KEY_OWM as weatherAPI } from '@env';
+import { useApp } from '../AppContext';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function Current({ lat, lon, liveLocation }) {
+  const { measureSystem, setMeasureSystem } = useApp();
   const [city, setCity] = useState(null);
   const [icon, setIcon] = useState(null);
   const [headline, setHeadline] = useState(null);
@@ -18,9 +21,7 @@ export default function Current({ lat, lon, liveLocation }) {
   // fetched in Forecast
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${JSON.stringify(
-        lat
-      )}&lon=${JSON.stringify(lon)}&appid=${weatherAPI}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${JSON.stringify(lat)}&lon=${JSON.stringify(lon)}&appid=${weatherAPI}&units=${measureSystem}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -30,13 +31,20 @@ export default function Current({ lat, lon, liveLocation }) {
         setIcon(data.weather[0].icon);
         setIsLoaded(true);
       });
-  }, []);
-
+  }, [measureSystem]);
+  
+  
   // Renders location-pin icon which only displays when forecast page is based on the user's live
   // location
   const locationIcon = (
     <Icon name="location-pin" family="Entypo" color="white" size={30} />
   );
+  const changeTempScale = () => {
+    // useEffect(() => {
+      if (measureSystem === 'metric') setMeasureSystem('imperial');
+      else setMeasureSystem('metric');
+    // }, [measureSystem])
+  }
 
   return (
     <>
@@ -59,9 +67,12 @@ export default function Current({ lat, lon, liveLocation }) {
               {city}
             </Text>
           )}
-          <Text style={styles.headlineText}>
-            {headline} {temp}°C
-          </Text>
+          <TouchableOpacity
+            onPress={changeTempScale}>
+            <Text style={styles.headlineText}>
+              {headline} {temp}°C
+            </Text>
+          </TouchableOpacity>
         </View>
       ) : (
         <ActivityIndicator size="large" color="#fff" />

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { View, ImageBackground } from 'react-native';
+import React, { useState, useEffect, useContext } from 'react';
+import { View, ImageBackground, RefreshControl } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { styles } from '../styles/styles';
 import Current from './Current';
@@ -11,16 +11,19 @@ import AirPollution from './AirPollution';
 import Loading from './Loading';
 import Map from './Map';
 import { EXPO_API_KEY_OWM as weatherAPI } from '@env';
+import { useApp } from '../AppContext';
 
 export default function Forecast( conditionsObject: conditionsInterface ) {
+  const { measureSystem } = useApp();
   const [onecallData, setOnecallData] = useState<any>(null);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [icon, setIcon] = useState<any>(null);
+
   // API call retrieves forecast data for location based on long/lat from Open Weather Map (live or
   // saved location)
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${conditionsObject.lat}&lon=${conditionsObject.lon}&appid=${weatherAPI}&units=metric&exclude=current,minutely`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${conditionsObject.lat}&lon=${conditionsObject.lon}&appid=${weatherAPI}&units=${measureSystem}&exclude=current,minutely`
     )
       .then(response => response.json())
       .then(data => {
@@ -28,7 +31,7 @@ export default function Forecast( conditionsObject: conditionsInterface ) {
         setIcon(data.hourly[0].weather[0].icon);
         setIsLoaded(true);
       });
-  }, []);
+  }, [measureSystem]);
   return (
     <>
       {isLoaded ? (
