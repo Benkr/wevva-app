@@ -7,7 +7,7 @@ import Day from './Day';
 
 export default function Days(locationObject: Location) {
   const { daily } = locationObject.data;
-
+  
   return (
     <>
       {daily ? (

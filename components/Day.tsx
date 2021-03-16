@@ -5,8 +5,18 @@ import LottieView from 'lottie-react-native';
 import { styles } from '../styles/styles';
 import { useApp } from '../AppContext';
 
-export default function Day({ name, icon, headline, minTemp, maxTemp }) {
+interface Props {
+  name: string,
+  icon: string,
+  headline: string,
+  minTemp: number,
+  maxTemp: number  
+}
+
+export default function Day(dayProps: Props) {
   const { measureSystem } = useApp();
+  const { name, icon, headline, minTemp, maxTemp } = dayProps;
+
   return (
     <View style={styles.forecastList}>
       <View style={styles.forecastListLeft}>

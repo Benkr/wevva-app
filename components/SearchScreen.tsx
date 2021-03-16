@@ -21,7 +21,7 @@ export default function SearchScreen({ navigation }) {
     debounceSearch(searchString);
   }, [searchString]);
 
-  const handleChange: any = (textValue) => {
+  const handleChange: any = (textValue: string) => {
     setSearchString(textValue);
   };
 
@@ -30,7 +30,7 @@ export default function SearchScreen({ navigation }) {
     []
   );
 
-  const fetchCities = (cityName: string) => {
+  const fetchCities: any = (cityName: string) => {
     fetch(
       `${baseUrl}geo/1.0/direct?q=${cityName}&appid=${weatherAPI}&limit=25`
     )
