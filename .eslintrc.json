@@ -18,7 +18,8 @@
     },
     "plugins": [
         "react",
-        "react-native"
+        "react-native",
+        "jest"
     ],
     "rules": {
         "react-native/no-unused-styles": 2,

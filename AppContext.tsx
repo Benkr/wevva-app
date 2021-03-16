@@ -9,14 +9,15 @@ export function useApp() {
   return useContext(AppContext);
 }
 
-export default function AppProvider({ children }) {
+
+export default function AppProvider ({ children }) {
   const [savedCityList, setSavedCityList] = useState([]);
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [measureSystem, setMeasureSystem] = useState('metric');
 
   // Saves list of saved cities in to local phone storage, which will be persisted in memory
-  const storeData = async (value) => {
+  const storeData: any = async (value: any) => {
     try {
       await AsyncStorage.setItem('@wevva-app', JSON.stringify(value));
     } catch (e) {
@@ -24,7 +25,7 @@ export default function AppProvider({ children }) {
     }
   };
 
-  const unitPreference = async (value) => {
+  const unitPreference: any = async (value: string) => {
     try {
       await AsyncStorage.setItem('@wevva-app/unit', JSON.stringify(value));
     } catch (e) {
@@ -51,8 +52,8 @@ export default function AppProvider({ children }) {
     // Update state with saved cities from local storage
     (async () => {
       try {
-        const value = await AsyncStorage.getItem('@wevva-app');
-        const units = await AsyncStorage.getItem('@wevva-app/unit');
+        const value: any = await AsyncStorage.getItem('@wevva-app');
+        const units: string = await AsyncStorage.getItem('@wevva-app/unit');
         if (value) {
           setSavedCityList(JSON.parse(value));
         }
@@ -66,15 +67,15 @@ export default function AppProvider({ children }) {
   }, []);
 
   // Saved cities are always stored in state and persisted in local storage
-  const addCity = (newCity) => {
-    const newCityList = [...savedCityList, newCity];
+  const addCity: any = (newCity: any) => {
+    const newCityList: any[] = [...savedCityList, newCity];
     storeData(newCityList);
     setSavedCityList(newCityList);
   };
   
-  const removeCity = (deleteCity) => {
-    let newCityList = [...savedCityList];
-    newCityList = newCityList.filter((city) => city !== deleteCity);
+  const removeCity: any = (deleteCity: any) => {
+    let newCityList: any[] = [...savedCityList];
+    newCityList = newCityList.filter((city: any) => city !== deleteCity);
     storeData(newCityList);
     setSavedCityList(newCityList);
   };
