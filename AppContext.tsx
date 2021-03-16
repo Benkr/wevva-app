@@ -71,6 +71,7 @@ export default function AppProvider({ children }) {
     storeData(newCityList);
     setSavedCityList(newCityList);
   };
+  
   const removeCity = (deleteCity) => {
     let newCityList = [...savedCityList];
     newCityList = newCityList.filter((city) => city !== deleteCity);

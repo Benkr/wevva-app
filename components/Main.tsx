@@ -11,7 +11,7 @@ export default function App() {
 
   const renderCities = () => {
     let mappedCityList = [...savedCityList];
-    return mappedCityList.map((city) => {
+    return mappedCityList.map((city: any) => {
       city = JSON.parse(city);
       return (
         <Forecast

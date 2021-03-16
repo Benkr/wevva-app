@@ -28,8 +28,8 @@ export default function Forecast(locationObject: Location) {
     fetch(
       `${baseUrl}data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${weatherAPI}&units=${measureSystem}&exclude=current,minutely`
     )
-      .then(response => response.json())
-      .then(data => {
+      .then((response: any) => response.json())
+      .then((data: any) => {
         setOnecallData(data);
         setIcon(data.hourly[0].weather[0].icon);
         setIsLoaded(true);

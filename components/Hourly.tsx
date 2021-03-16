@@ -10,14 +10,14 @@ import { useApp } from '../AppContext';
 
 export default function Hourly({ data }) {
   const { measureSystem } = useApp();
-  const hourly = data.hourly.slice(0, 24);
+  const hourly: any[] = data.hourly.slice(0, 24);
 
   return (
     <>
       <Text style={styles.titleText}>Hourly Forecast</Text>
       <ScrollView showsHorizontalScrollIndicator={false} horizontal>
         <View style={styles.hourlyContainer}>
-          {hourly.map((hour) => (
+          {hourly.map((hour: any) => (
             <View style={styles.hourlyComponent} key={hour.dt}>
               <View>
                 <Text style={styles.hourlyText}>

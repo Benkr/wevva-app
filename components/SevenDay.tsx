@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import { Location } from '../lib/interfaces';
 import { styles } from '../styles/styles';
 import { format } from 'date-fns';
 import fromUnixTime from 'date-fns/fromUnixTime';
@@ -8,8 +9,10 @@ import Images from '../assets/index.js';
 import LottieView from 'lottie-react-native';
 import { useApp } from '../AppContext';
 
-export default function SevenDay({ data }) {
+export default function SevenDay(locationObject: Location) {
   const { measureSystem } = useApp();
+
+  const { data } = locationObject;
   const daily: any = data.daily.slice(1, 8);
 
   return (
@@ -17,7 +20,7 @@ export default function SevenDay({ data }) {
       <Text style={styles.titleText}>7 Day Forecast</Text>
       <ScrollView showsHorizontalScrollIndicator={false} horizontal>
         <View style={styles.sevenDayContainer}>
-          {daily.map((day, idx) => (
+          {daily.map((day: any, idx: number) => (
             <View style={styles.sevenDayComponent} key={idx}>
               <View>
                 <Text style={styles.sevenDayText}>

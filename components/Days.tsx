@@ -1,11 +1,13 @@
 import React from 'react';
 import { View } from 'react-native';
+import { Location } from '../lib/interfaces';
 import { styles } from '../styles/styles';
 import { tomorrowPlusOne, Capitalize } from '../helpers';
 import Day from './Day';
 
-export default function Days({ data }) {
-  const { daily } = data;
+export default function Days(locationObject: Location) {
+  const { daily } = locationObject.data;
+
   return (
     <>
       {daily ? (

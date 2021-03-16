@@ -1,3 +1,3 @@
 export interface LoadingStatus {
-  text: string
+  text?: string
 }

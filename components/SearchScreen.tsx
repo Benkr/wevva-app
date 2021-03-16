@@ -21,21 +21,21 @@ export default function SearchScreen({ navigation }) {
     debounceSearch(searchString);
   }, [searchString]);
 
-  const handleChange: any = (textValue: string) => {
+  const handleChange: any = (textValue) => {
     setSearchString(textValue);
   };
 
   const debounceSearch: any = useCallback(
-    AwesomeDebouncePromise((searchString: string) => fetchCities(searchString), 1000),
+    AwesomeDebouncePromise((cityName: string) => fetchCities(cityName), 1000),
     []
   );
 
-  const fetchCities: any = (cityName: string) => {
+  const fetchCities = (cityName: string) => {
     fetch(
       `${baseUrl}geo/1.0/direct?q=${cityName}&appid=${weatherAPI}&limit=25`
     )
-      .then((response) => response.json())
-      .then((data) => {
+      .then((response: any) => response.json())
+      .then((data: any) => {
         setSearchResult(data);
       });
   };
