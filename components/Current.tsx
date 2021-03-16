@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, ActivityIndicator } from 'react-native';
+import { Text, View, ActivityIndicator, TouchableOpacity } from 'react-native';
 import LottieView from 'lottie-react-native';
 import { Icon } from 'galio-framework';
 import Images from '../assets/index.js';
@@ -7,10 +7,9 @@ import { styles } from '../styles/styles';
 import { Capitalize } from '../helpers';
 import { EXPO_API_KEY_OWM as weatherAPI } from '@env';
 import { useApp } from '../AppContext';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function Current({ lat, lon, liveLocation }) {
-  const { measureSystem, setMeasureSystem } = useApp();
+  const { measureSystem, setMeasureSystem, unitPreference } = useApp();
   const [city, setCity] = useState(null);
   const [icon, setIcon] = useState(null);
   const [headline, setHeadline] = useState(null);
@@ -40,10 +39,13 @@ export default function Current({ lat, lon, liveLocation }) {
     <Icon name="location-pin" family="Entypo" color="white" size={30} />
   );
   const changeTempScale = () => {
-    // useEffect(() => {
-      if (measureSystem === 'metric') setMeasureSystem('imperial');
-      else setMeasureSystem('metric');
-    // }, [measureSystem])
+    if (measureSystem === 'metric') {
+      setMeasureSystem('imperial');
+      unitPreference('imperial');
+    } else {
+      setMeasureSystem('metric');
+      unitPreference('metric');
+    }
   }
 
   return (

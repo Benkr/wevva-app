@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { View, ImageBackground, RefreshControl } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, ImageBackground } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { styles } from '../styles/styles';
 import Current from './Current';

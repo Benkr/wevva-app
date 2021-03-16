@@ -24,6 +24,14 @@ export default function AppProvider({ children }) {
     }
   };
 
+  const unitPreference = async (value) => {
+    try {
+      await AsyncStorage.setItem('@wevva-app/unit', JSON.stringify(value));
+    } catch (e) {
+      Alert.alert(e);
+    }
+  };
+
   // Get users location when the app first renders, this will be saved in phone settings and only request
   // the first time they start the app
   useEffect(() => {
@@ -44,8 +52,12 @@ export default function AppProvider({ children }) {
     (async () => {
       try {
         const value = await AsyncStorage.getItem('@wevva-app');
-        if (value !== null) {
+        const units = await AsyncStorage.getItem('@wevva-app/unit');
+        if (value) {
           setSavedCityList(JSON.parse(value));
+        }
+        if (units !== null) {
+          setMeasureSystem(JSON.parse(units));
         }
       } catch (e) {
         Alert.alert(e);
@@ -76,6 +88,7 @@ export default function AppProvider({ children }) {
         setMeasureSystem: setMeasureSystem,
         addCity: addCity,
         removeCity: removeCity,
+        unitPreference: unitPreference,
       }}
     >
       {children}
