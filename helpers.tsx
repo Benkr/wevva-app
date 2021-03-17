@@ -1,5 +1,24 @@
 import { format } from 'date-fns';
 
+enum Compass {
+  N = 'N',
+  NE = 'NE',
+  E = 'E',
+  SE = 'SE',
+  S = 'S',
+  SW = 'SW',
+  W = 'W',
+  NW = 'NW',
+}
+
+enum Levels {
+  LOW = Levels.LOW,
+  MODERATE = Levels.MODERATE,
+  HIGH = Levels.HIGH,
+  VERY_HIGH = Levels.VERY_HIGH,
+  EXTREME = Levels.EXTREME,
+}
+
 // Capitalises the first letter of the headline
 export const capitalize = (str: string) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
@@ -13,7 +32,7 @@ export const tomorrowPlusOne = () => {
 
 // Converts wind direction in degrees to letter format - i.e. 5km/h NE (North-East)
 export const degToCard = (deg: number) => {
-  const directions: string[] = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+  const directions: string[] = [Compass.N, Compass.NE, Compass.E, Compass.SE, Compass.S, Compass.SW, Compass.W, Compass.NW];
   let degrees: number = (deg * 8) / 360;
   degrees = Math.round(degrees);
   degrees = (degrees + 8) % 8;
@@ -23,120 +42,120 @@ export const degToCard = (deg: number) => {
 // Converts UV Index to a string based on extremity
 export const measureUVI = (num: number) => {
   if (num <= 2) {
-    return 'Low';
+    return Levels.LOW;
   } else if (num <= 5) {
-    return 'Moderate';
+    return Levels.MODERATE;
   } else if (num <= 7) {
-    return 'High';
+    return Levels.HIGH;
   } else if (num <= 10) {
-    return 'Very High';
+    return Levels.VERY_HIGH;
   } else {
-    return 'Extreme';
+    return Levels.EXTREME;
   }
 };
 
 // Converts CO level to a string based on extremity
 export const measureCO = (num: number) => {
   if (num <= 1000) {
-    return 'Low';
+    return Levels.LOW;
   } else if (num <= 10000) {
-    return 'Moderate';
+    return Levels.MODERATE;
   } else if (num <= 17000) {
-    return 'High';
+    return Levels.HIGH;
   } else if (num <= 34000) {
-    return 'Very High';
+    return Levels.VERY_HIGH;
   } else {
-    return 'Extreme';
+    return Levels.EXTREME;
   }
 };
 
 // Converts NO & NO2 level to a string based on extremity
 export const measureNO2 = (num: number) => {
   if (num <= 40) {
-    return 'Low';
+    return Levels.LOW;
   } else if (num <= 80) {
-    return 'Moderate';
+    return Levels.MODERATE;
   } else if (num <= 200) {
-    return 'High';
+    return Levels.HIGH;
   } else if (num <= 400) {
-    return 'Very High';
+    return Levels.VERY_HIGH;
   } else {
-    return 'Extreme';
+    return Levels.EXTREME;
   }
 };
 
 // Converts O3 level to a string based on extremity
 export const measureO3 = (num: number) => {
   if (num <= 20) {
-    return 'Low';
+    return Levels.LOW;
   } else if (num <= 40) {
-    return 'Moderate';
+    return Levels.MODERATE;
   } else if (num <= 160) {
-    return 'High';
+    return Levels.HIGH;
   } else if (num <= 240) {
-    return 'Very High';
+    return Levels.VERY_HIGH;
   } else {
-    return 'Extreme';
+    return Levels.EXTREME;
   }
 };
 
 // Converts SO2 level to a string based on extremity
 export const measureSO2 = (num: number) => {
   if (num <= 20) {
-    return 'Low';
+    return Levels.LOW;
   } else if (num <= 125) {
-    return 'Moderate';
+    return Levels.MODERATE;
   } else if (num <= 350) {
-    return 'High';
+    return Levels.HIGH;
   } else if (num <= 500) {
-    return 'Very High';
+    return Levels.VERY_HIGH;
   } else {
-    return 'Extreme';
+    return Levels.EXTREME;
   }
 };
 
 // Converts NH3 level to a string based on extremity
 export const measureNH3 = (num: number) => {
   if (num <= 400) {
-    return 'Low';
+    return Levels.LOW;
   } else if (num <= 800) {
-    return 'Moderate';
+    return Levels.MODERATE;
   } else if (num <= 1200) {
-    return 'High';
+    return Levels.HIGH;
   } else if (num <= 1800) {
-    return 'Very High';
+    return Levels.VERY_HIGH;
   } else {
-    return 'Extreme';
+    return Levels.EXTREME;
   }
 };
 
 // Converts PM2.5 level to a string based on extremity
 export const measurePM25 = (num: number) => {
   if (num <= 10) {
-    return 'Low';
+    return Levels.LOW;
   } else if (num <= 25) {
-    return 'Moderate';
+    return Levels.MODERATE;
   } else if (num <= 50) {
-    return 'High';
+    return Levels.HIGH;
   } else if (num <= 100) {
-    return 'Very High';
+    return Levels.VERY_HIGH;
   } else {
-    return 'Extreme';
+    return Levels.EXTREME;
   }
 };
 
 // Converts PM10 level to a string based on extremity
 export const measurePM10 = (num: number) => {
   if (num <= 20) {
-    return 'Low';
+    return Levels.LOW;
   } else if (num <= 50) {
-    return 'Moderate';
+    return Levels.MODERATE;
   } else if (num <= 80) {
-    return 'High';
+    return Levels.HIGH;
   } else if (num <= 160) {
-    return 'Very High';
+    return Levels.VERY_HIGH;
   } else {
-    return 'Extreme';
+    return Levels.EXTREME;
   }
 };
 
