@@ -12,11 +12,11 @@ enum Compass {
 }
 
 enum Levels {
-  LOW = Levels.LOW,
-  MODERATE = Levels.MODERATE,
-  HIGH = Levels.HIGH,
-  VERY_HIGH = Levels.VERY_HIGH,
-  EXTREME = Levels.EXTREME,
+  LOW = 'Low',
+  MODERATE = 'Moderate',
+  HIGH = 'High',
+  VERY_HIGH = "Very High",
+  EXTREME = 'Extreme',
 }
 
 // Capitalises the first letter of the headline
