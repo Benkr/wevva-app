@@ -2,6 +2,7 @@ import {
   capitalize,
   degToCard,
   measureCO,
+  measurementSystem,
   measureNH3,
   measureNO2,
   measureO3,
@@ -121,5 +122,10 @@ describe('Helper functions', () => {
     expect(measurePM10(81)).toBe('Very High');
     expect(measurePM10(160)).toBe('Very High');
     expect(measurePM10(161)).toBe('Extreme');
+  });
+
+  it('should display the metric measurements when set to metric', () => {
+    expect(measurementSystem('metric')).toBe('°C')
+    expect(measurementSystem('imperial').toBe('°F'))
   });
 });
