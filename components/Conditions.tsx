@@ -64,7 +64,7 @@ export default function Conditions(locationObject: Location) {
             <View style={styles.conditionsPair}>
               <Text style={styles.conditionsTextTitle}>Wind</Text>
               <Text style={styles.conditionsTextResult}>
-                {Math.round(hourlyConditions.wind_speed)}{measurementSystem(systemName)}{' - '}
+                {Math.round(hourlyConditions.wind_speed)}{measurementSystem(systemName) === '°C' ? 'Km/h' : 'Mi/h'}{' - '}
                 {degToCard(hourlyConditions.wind_deg)}
               </Text>
             </View>
