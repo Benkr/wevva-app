@@ -10,28 +10,20 @@ import { EXPO_API_KEY_OWM as weatherAPI, BASE_URL as baseUrl } from '@env';
 import { styles } from '../styles/styles';
 import { useApp } from '../AppContext';
 
-interface SearchState {
-  searchResult: any[],
-  searchString: string
-}
-
 export default function SearchScreen({ navigation }) {
-  // const [searchResult, setSearchResult] = useState([]);
-  // const [searchString, setSearchString] = useState('');
-  const [state, setState] = useState<SearchState>({
-    searchResult: [],
-    searchString: '',
-  })
+  const [searchResult, setSearchResult] = useState([]);
+  const [searchString, setSearchString] = useState('');
+  
   const { addCity, removeCity, savedCityList } = useApp();
 
   // User search string is stored in state variable searchString and call to API is debounced by 1 second
   // to avoid too many API calls
   useEffect(() => {
-    debounceSearch(state.searchString);
-  }, [state.searchString]);
+    debounceSearch(searchString);
+  }, [searchString]);
 
   const handleChange: any = (textValue: string) => {
-    setState({ ...state, searchString: textValue });
+    setSearchString(textValue);
   };
 
   const debounceSearch: any = useCallback(
@@ -45,7 +37,7 @@ export default function SearchScreen({ navigation }) {
     )
       .then((response: any) => response.json())
       .then((data: any) => {
-        setState({ ...state, searchResult: data });
+        setSearchResult(data);
       });
   };
 
@@ -62,13 +54,13 @@ export default function SearchScreen({ navigation }) {
               lightTheme
               placeholder="Find a city..."
               onChangeText={handleChange}
-              value={state.searchString}
+              value={searchString}
               containerStyle={styles.searchInputContainerContainer}
               inputContainerStyle={styles.searchInputContainer}
               inputStyle={styles.searchInput}
             />
-            {state.searchResult.length
-              ? state.searchResult.map((city: any) => {
+            {searchResult.length
+              ? searchResult.map((city: any) => {
                   return (
                     <TouchableOpacity
                       key={`${city.name}${city.lat}${city.lon}`}
@@ -95,8 +87,8 @@ export default function SearchScreen({ navigation }) {
                           style={{ position: 'absolute', right: 20 }}
                           onPress={() => {
                             addCity(JSON.stringify(city));
-                            setState({ searchResult: [], searchString: '' });
-                            // setSearchResult([]);
+                            setSearchString('');
+                            setSearchResult([]);
                           }}
                         >
                           <Icon

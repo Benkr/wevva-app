@@ -3,7 +3,7 @@ import { View, ImageBackground } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { ConditionsState, Location } from '../lib/interfaces';
 import { styles } from '../styles/styles';
-// import { Current, Days, Hourly, SevenDay, Conditions, AirPollution, Loading, Map } from '@components';
+// import { Current, Days, Hourly, SevenDay, Conditions, AirPollution, Loading, Map } from '.';
 import Current from './Current';
 import Days from './Days';
 import Hourly from './Hourly';
