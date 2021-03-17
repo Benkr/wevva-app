@@ -7,9 +7,10 @@ import fromUnixTime from 'date-fns/fromUnixTime';
 import Images from '../assets/index.js';
 import LottieView from 'lottie-react-native';
 import { useApp } from '../AppContext';
+import { measurementSystem } from '../helpers';
 
 export default function Hourly({ data }) {
-  const { measureSystem } = useApp();
+  const { systemName } = useApp();
   const hourly: any[] = data.hourly.slice(0, 24);
 
   return (
@@ -33,7 +34,7 @@ export default function Hourly({ data }) {
                 />
               </View>
               <View>
-                <Text style={styles.hourlyText}>{Math.round(hour.temp)}{measureSystem === 'metric' ? '°C' : '°F'}</Text>
+                <Text style={styles.hourlyText}>{Math.round(hour.temp)}{measurementSystem(systemName)}</Text>
               </View>
             </View>
           ))}

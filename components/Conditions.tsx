@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { Location } from '../lib/interfaces';
 import { styles } from '../styles/styles';
-import { degToCard, measureUVI } from '../helpers';
+import { degToCard, measurementSystem, measureUVI } from '../helpers';
 import { useApp } from '../AppContext';
 // import { EXPO_API_KEY_AMBEE } from '@env';
 
@@ -13,12 +13,14 @@ import { useApp } from '../AppContext';
 //   liveLocation?: any;
 // }
 
+type Levels = 'Low' | 'Moderate' | 'High';
+
 export default function Conditions(locationObject: Location) {
-  const { measureSystem } = useApp();
-  const [grassPollen] = useState<any>('Low');
-  const [treePollen] = useState<any>('Moderate');
-  const [weedPollen] = useState<any>('Low');
-  
+  const { systemName } = useApp();
+  const [grassPollen] = useState<Levels>('Low');
+  const [treePollen] = useState<Levels>('Moderate');
+  const [weedPollen] = useState<Levels>('Low');  
+
   const hourlyConditions: any = locationObject.data.hourly[0];
 
   // Was using Ambee API to obtain pollen count information but API is very slow and they blocked me, therefore
@@ -50,7 +52,7 @@ export default function Conditions(locationObject: Location) {
             <View style={styles.conditionsPair}>
               <Text style={styles.conditionsTextTitle}>Feels like</Text>
               <Text style={styles.conditionsTextResult}>
-                {Math.round(hourlyConditions.feels_like)}{measureSystem === 'metric' ? '°C' : '°F'}
+                {Math.round(hourlyConditions.feels_like)}{measurementSystem(systemName)}
               </Text>
             </View>
             <View style={styles.conditionsPair}>
@@ -62,7 +64,7 @@ export default function Conditions(locationObject: Location) {
             <View style={styles.conditionsPair}>
               <Text style={styles.conditionsTextTitle}>Wind</Text>
               <Text style={styles.conditionsTextResult}>
-                {Math.round(hourlyConditions.wind_speed)}{measureSystem === 'metric' ? 'km/h' : 'mi/h'}{' - '}
+                {Math.round(hourlyConditions.wind_speed)}{measurementSystem(systemName)}{' - '}
                 {degToCard(hourlyConditions.wind_deg)}
               </Text>
             </View>

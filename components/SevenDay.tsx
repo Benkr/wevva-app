@@ -8,9 +8,10 @@ import fromUnixTime from 'date-fns/fromUnixTime';
 import Images from '../assets/index.js';
 import LottieView from 'lottie-react-native';
 import { useApp } from '../AppContext';
+import { measurementSystem } from '../helpers';
 
 export default function SevenDay(locationObject: Location) {
-  const { measureSystem } = useApp();
+  const { systemName } = useApp();
 
   const { data } = locationObject;
   const daily: any = data.daily.slice(1, 8);
@@ -37,7 +38,7 @@ export default function SevenDay(locationObject: Location) {
               </View>
               <View>
                 <Text style={styles.sevenDayText}>
-                  {Math.round(day.temp.day)}{measureSystem === 'metric' ? '°C' : '°F'}
+                  {Math.round(day.temp.day)}{measurementSystem(systemName)}
                 </Text>
               </View>
             </View>

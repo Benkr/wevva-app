@@ -1,5 +1,5 @@
 import {
-  Capitalize,
+  capitalize,
   degToCard,
   measureCO,
   measureNH3,
@@ -13,7 +13,7 @@ import {
 
 describe('Helper functions', () => {
   it('should capitalize first letter of a string', () => {
-    expect(Capitalize('citytown')).toBe('Citytown');
+    expect(capitalize('citytown')).toBe('Citytown');
   });
 
   it('should display the correct compass direction per deg-azimuth', () => {

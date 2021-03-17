@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 
 // Capitalises the first letter of the headline
-export const Capitalize = (str: string) => {
+export const capitalize = (str: string) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
@@ -139,3 +139,8 @@ export const measurePM10 = (num: number) => {
     return 'Extreme';
   }
 };
+
+export const measurementSystem = (systemName: string) => {
+  if (systemName === 'metric') return '°C';
+  else return '°F';
+}

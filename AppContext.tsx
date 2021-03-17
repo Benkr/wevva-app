@@ -9,12 +9,11 @@ export function useApp() {
   return useContext(AppContext);
 }
 
-
 export default function AppProvider ({ children }) {
   const [savedCityList, setSavedCityList] = useState([]);
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
-  const [measureSystem, setMeasureSystem] = useState('metric');
+  const [systemName, setSystemName] = useState('metric');
 
   // Saves list of saved cities in to local phone storage, which will be persisted in memory
   const storeData: any = async (value: any) => {
@@ -58,7 +57,7 @@ export default function AppProvider ({ children }) {
           setSavedCityList(JSON.parse(value));
         }
         if (units !== null) {
-          setMeasureSystem(JSON.parse(units));
+          setSystemName(JSON.parse(units));
         }
       } catch (e) {
         Alert.alert(e);
@@ -83,14 +82,14 @@ export default function AppProvider ({ children }) {
   return (
     <AppContext.Provider
       value={{
-        savedCityList: savedCityList,
-        latitude: latitude,
-        longitude: longitude,
-        measureSystem: measureSystem,
-        setMeasureSystem: setMeasureSystem,
-        addCity: addCity,
-        removeCity: removeCity,
-        unitPreference: unitPreference,
+        savedCityList,
+        latitude,
+        longitude,
+        systemName,
+        setSystemName,
+        addCity,
+        removeCity,
+        unitPreference,
       }}
     >
       {children}

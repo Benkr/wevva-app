@@ -32,7 +32,7 @@ export default function AirPollution(locationObject: Location) {
       .then((data: any) => {
         setAirPollution(data.list[0]);
       });
-  }, []);
+  }, [lat, lon]);
 
   return (
     <View>

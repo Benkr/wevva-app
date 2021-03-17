@@ -4,6 +4,7 @@ import Images from '../assets/index.js';
 import LottieView from 'lottie-react-native';
 import { styles } from '../styles/styles';
 import { useApp } from '../AppContext';
+import { measurementSystem } from '../helpers';
 
 interface Props {
   name: string,
@@ -14,7 +15,7 @@ interface Props {
 }
 
 export default function Day(dayProps: Props) {
-  const { measureSystem } = useApp();
+  const { systemName } = useApp();
   const { name, icon, headline, minTemp, maxTemp } = dayProps;
 
   return (
@@ -36,7 +37,7 @@ export default function Day(dayProps: Props) {
       </View>
       <View style={styles.forecastListRight}>
         <Text style={styles.forecastText}>
-          {minTemp} / {maxTemp}{measureSystem === 'metric' ? '°C' : '°F'}
+          {minTemp} / {maxTemp}{measurementSystem(systemName)}
         </Text>
       </View>
     </View>
