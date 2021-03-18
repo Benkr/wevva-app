@@ -21,7 +21,7 @@ interface PollutionComponents {
   no2: number,
   o3: number,
   pm10: number,
-  pm25: number,
+  pm2_5: number,
   so2: number
 }
 

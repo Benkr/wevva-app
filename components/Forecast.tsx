@@ -14,7 +14,6 @@ import Map from './Map';
 import { EXPO_API_KEY_OWM as weatherAPI, BASE_URL as baseUrl } from '@env';
 import { useApp } from '../AppContext';
 
-
 export default function Forecast(locationObject: Location) {
   const { systemName } = useApp();
 
