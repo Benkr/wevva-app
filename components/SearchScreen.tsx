@@ -39,7 +39,7 @@ export default function SearchScreen({ navigation }) {
       .then((data: any) => {
         setSearchResult(data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log('SearchScreen.tsx Line 42', err));
   };
 
   return (

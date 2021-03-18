@@ -14,8 +14,25 @@ import {
   measurePM10,
 } from '../helpers';
 
+interface PollutionComponents {
+  co: number,
+  nh3: number,
+  no: number,
+  no2: number,
+  o3: number,
+  pm10: number,
+  pm25: number,
+  so2: number
+}
+
+interface PollutionInterface {
+  components: PollutionComponents,
+  dt: number,
+  main: any
+}
+
 export default function AirPollution(locationObject: Location) {
-  const [airPollution, setAirPollution] = useState<any>(null);
+  const [airPollution, setAirPollution] = useState<PollutionInterface>(null);
 
   const { lat, lon } = locationObject;
 
@@ -27,7 +44,7 @@ export default function AirPollution(locationObject: Location) {
       .then((data: any) => {
         setAirPollution(data.list[0]);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log('AirPollution.tsx Line 30', err));
   }, [lat, lon]);
 
   return (

@@ -40,7 +40,7 @@ export default function ForecastSearch(props) {
       .then((data: any) => {
         setState({ onecallData: data, isLoaded: true, icon: data.hourly[0].weather[0].icon });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log('Forecast Search.tsx Line43', err));
   }, [systemName]);
 
   return (

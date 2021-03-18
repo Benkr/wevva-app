@@ -9,6 +9,7 @@ import { capitalize, measurementSystem } from '../helpers';
 import { EXPO_API_KEY_OWM as weatherAPI, BASE_URL as baseUrl } from '@env';
 import { useApp } from '../AppContext';
 
+
 export default function Current(locationObject: Location) {
   const { systemName, setSystemName, unitPreference } = useApp();
 
@@ -37,7 +38,7 @@ export default function Current(locationObject: Location) {
           isLoaded: true,
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log('Current.tsx, Line 40', err));
   }, [systemName]);
 
   // Renders location-pin icon which only displays when forecast page is based on the user's live

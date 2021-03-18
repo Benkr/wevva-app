@@ -14,6 +14,7 @@ import Map from './Map';
 import { EXPO_API_KEY_OWM as weatherAPI, BASE_URL as baseUrl } from '@env';
 import { useApp } from '../AppContext';
 
+
 export default function Forecast(locationObject: Location) {
   const { systemName } = useApp();
 
@@ -35,7 +36,7 @@ export default function Forecast(locationObject: Location) {
       .then((data: any) => {
         setState({ onecallData: data, isLoaded: true, icon: data.hourly[0].weather[0].icon });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log('Forecast.tsx, Line 38', err));
   }, [systemName]);
   return (
     <>
