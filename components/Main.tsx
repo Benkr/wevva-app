@@ -1,7 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import Swiper from 'react-native-swiper';
-// import {Search, Forecast, Loading } from '.';
 import Search from './Search';
 import Forecast from './Forecast';
 import Loading from './Loading';

@@ -9,19 +9,8 @@ import { capitalize, measurementSystem } from '../helpers';
 import { EXPO_API_KEY_OWM as weatherAPI, BASE_URL as baseUrl } from '@env';
 import { useApp } from '../AppContext';
 
-// interface conditionsInterface {
-//   lat: number,
-//   lon: number,
-//   liveLocation?: boolean
-// }
-
 export default function Current(locationObject: Location) {
   const { systemName, setSystemName, unitPreference } = useApp();
-  // const [city, setCity] = useState<any>(null);
-  // const [icon, setIcon] = useState<any>(null);
-  // const [headline, setHeadline] = useState<any>(null);
-  // const [temp, setTemp] = useState<any>(null);
-  // const [isLoaded, setIsLoaded] = useState<any>(false);
 
   const [state, setState] = useState<ConditionsState>({
     name: null,
@@ -40,11 +29,6 @@ export default function Current(locationObject: Location) {
     )
       .then((response: any) => response.json())
       .then((data: any) => {
-        // setCity(data.name);
-        // setHeadline(capitalize(data.weather[0].description));
-        // setTemp(Math.round(data.main.temp));
-        // setIcon(data.weather[0].icon);
-        // setIsLoaded(true);
         setState({
           name: data.name,
           headline: capitalize(data.weather[0].description),
@@ -52,7 +36,8 @@ export default function Current(locationObject: Location) {
           icon: data.weather[0].icon,
           isLoaded: true,
         });
-      });
+      })
+      .catch((err) => console.log(err));
   }, [systemName]);
 
   // Renders location-pin icon which only displays when forecast page is based on the user's live

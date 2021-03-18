@@ -6,13 +6,6 @@ import { degToCard, measurementSystem, measureUVI } from '../helpers';
 import { useApp } from '../AppContext';
 // import { EXPO_API_KEY_AMBEE } from '@env';
 
-// interface conditionsInterface {
-//   data?: any;
-//   lat?: any;
-//   lon?: any;
-//   liveLocation?: any;
-// }
-
 type Levels = 'Low' | 'Moderate' | 'High';
 
 export default function Conditions(locationObject: Location) {
@@ -40,7 +33,8 @@ export default function Conditions(locationObject: Location) {
   //     .then(({ data }) => {
   //       setPollenData(data);
   //       console.log(data);
-  //     });
+  //     })
+  //     .catch((err) => console.log(err));
   // }, []);
 
   return (

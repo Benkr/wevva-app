@@ -3,7 +3,6 @@ import { View, ImageBackground, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Icon } from 'galio-framework';
 import { styles } from '../styles/styles';
-// import { Current, Days, Hourly, SevenDay, Conditions, AirPollution, Loading, Map } from '@components';
 import Current from './Current';
 import Days from './Days';
 import Hourly from './Hourly';
@@ -22,9 +21,6 @@ import { ConditionsState } from '../lib/interfaces';
 
 export default function ForecastSearch(props) {
   const { systemName } = useApp();
-  // const [onecallData, setOnecallData] = useState(null);
-  // const [isLoaded, setIsLoaded] = useState(false);
-  // const [icon, setIcon] = useState(null);
 
   const [state, setState] = useState<ConditionsState>({
     onecallData: null,
@@ -43,9 +39,8 @@ export default function ForecastSearch(props) {
       .then((response: any) => response.json())
       .then((data: any) => {
         setState({ onecallData: data, isLoaded: true, icon: data.hourly[0].weather[0].icon });
-        // setIcon(data.hourly[0].weather[0].icon);
-        // setIsLoaded(true);
-      });
+      })
+      .catch((err) => console.log(err));
   }, [systemName]);
 
   return (

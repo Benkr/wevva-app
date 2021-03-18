@@ -3,7 +3,6 @@ import { View, ImageBackground } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { ConditionsState, Location } from '../lib/interfaces';
 import { styles } from '../styles/styles';
-// import { Current, Days, Hourly, SevenDay, Conditions, AirPollution, Loading, Map } from '.';
 import Current from './Current';
 import Days from './Days';
 import Hourly from './Hourly';
@@ -17,9 +16,6 @@ import { useApp } from '../AppContext';
 
 export default function Forecast(locationObject: Location) {
   const { systemName } = useApp();
-  // const [onecallData, setOnecallData] = useState<any>(null);
-  // const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  // const [icon, setIcon] = useState<any>(null);
 
   const [state, setState] = useState<ConditionsState>({
     onecallData: null,
@@ -38,9 +34,8 @@ export default function Forecast(locationObject: Location) {
       .then((response: any) => response.json())
       .then((data: any) => {
         setState({ onecallData: data, isLoaded: true, icon: data.hourly[0].weather[0].icon });
-        // setIcon(data.hourly[0].weather[0].icon);
-        // setIsLoaded(true);
-      });
+      })
+      .catch((err) => console.log(err));
   }, [systemName]);
   return (
     <>

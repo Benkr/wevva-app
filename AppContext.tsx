@@ -18,7 +18,6 @@ export default function AppProvider ({ children }) {
   // Saves list of saved cities in to local phone storage, which will be persisted in memory
   const storeData: any = async (value: any) => {
     try {
-      console.log(value);
       await AsyncStorage.setItem('@wevva-app', JSON.stringify(value));
     } catch (e) {
       Alert.alert(e);

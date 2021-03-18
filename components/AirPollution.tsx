@@ -14,11 +14,6 @@ import {
   measurePM10,
 } from '../helpers';
 
-// interface CoordinateInterface {
-//   lat: number;
-//   lon: number;
-// }
-
 export default function AirPollution(locationObject: Location) {
   const [airPollution, setAirPollution] = useState<any>(null);
 
@@ -31,7 +26,8 @@ export default function AirPollution(locationObject: Location) {
       .then((response: any) => response.json())
       .then((data: any) => {
         setAirPollution(data.list[0]);
-      });
+      })
+      .catch((err) => console.log(err));
   }, [lat, lon]);
 
   return (

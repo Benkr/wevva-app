@@ -38,7 +38,8 @@ export default function SearchScreen({ navigation }) {
       .then((response: any) => response.json())
       .then((data: any) => {
         setSearchResult(data);
-      });
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
