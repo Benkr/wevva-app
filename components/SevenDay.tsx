@@ -14,8 +14,8 @@ export default function SevenDay(locationObject: Location) {
   const { systemName } = useApp();
 
   const { data } = locationObject;
-  const daily: any = data.daily.slice(1, 8);
-
+  const daily: any[] = data.daily.slice(1, 8);
+  
   return (
     <>
       <Text style={styles.titleText}>7 Day Forecast</Text>
